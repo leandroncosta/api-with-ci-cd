@@ -68,10 +68,10 @@ namespace RelatoX.Persistence.Services
             var summaries = consumptionsByUser.GroupBy(x => x.Date.Month)
                 .Select(x => new MonthlyConsumptionSummaryDto()
                 {
-                    //Month = x.Key.ToString(),
-                    //Water = x.Sum(i => i.Type == ConsumptionType.Water ? i.QuantityConsumed : 0),
-                    //Energy = x.Sum(i => i.Type == ConsumptionType.Energy ? i.QuantityConsumed : 0),
-                    //Gas = x.Sum(i => i.Type == ConsumptionType.Gas ? i.QuantityConsumed : 0)
+                    Month = x.Key.ToString(),
+                    Water = (decimal)x.Sum(i => i.Type == ConsumptionType.Water ? i.QuantityConsumed : 0),
+                    Energy = (decimal)x.Sum(i => i.Type == ConsumptionType.Energy ? i.QuantityConsumed : 0),
+                    Gas = (decimal)x.Sum(i => i.Type == ConsumptionType.Gas ? i.QuantityConsumed : 0)
                 }).ToList();
 
             var result = new MonthlyUserReportDto()

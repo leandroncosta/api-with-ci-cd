@@ -12,7 +12,7 @@ namespace RelatoX.Infra.Data.InMemory
         public InMemoryConsumptionRepository()
 
         {
-            //SeedData(1000);
+            SeedData(1000);
         }
 
         public Task<ConsumptionEntry> AddAsync(ConsumptionEntry entry)
@@ -50,7 +50,7 @@ namespace RelatoX.Infra.Data.InMemory
         public Task<List<ConsumptionEntry>> GetAllByUserAsync(string userId)
         {
             var query = _data.AsQueryable();
-             query = query.Where(x => x.UserId == userId);
+            query = query.Where(x => x.UserId == userId);
             return Task.FromResult(query.ToList());
         }
 

@@ -1,6 +1,6 @@
 services:
   web.api:
-    image: ${DOCKER_REGISTRY-}webapi
+    # image: ${DOCKER_REGISTRY-}webapi
     build:
       context: .
       dockerfile: Web.API/Dockerfile
@@ -8,10 +8,18 @@ services:
        - db-postgres
     networks: 
       -  private_network
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      # - ASPNETCORE_URLS=http://+:8080;https://+:8081
+    ports:
+      - "8080:8080"
+      # - "8080:8080"
+      # - "8081:8081"
+
 
   db-postgres:
         image: postgres:15
-        container_name: 'db_postgres'
+        container_name: 'db_postgres_relatox'
         environment:
             POSTGRES_USER: user
             POSTGRES_PASSWORD: password
