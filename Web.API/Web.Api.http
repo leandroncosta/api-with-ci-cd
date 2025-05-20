@@ -1,0 +1,6 @@
+@RelatoX_HostAddress = http://localhost:5011
+
+GET {{RelatoX_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,26 @@
+services:
+  web.api:
+    image: ${DOCKER_REGISTRY-}webapi
+    build:
+      context: .
+      dockerfile: Web.API/Dockerfile
+    depends_on:
+       - db-postgres
+    networks: 
+      -  private_network
+
+  db-postgres:
+        image: postgres:15
+        container_name: 'db_postgres'
+        environment:
+            POSTGRES_USER: user
+            POSTGRES_PASSWORD: password
+            POSTGRES_DB: relatox
+        networks:
+            - private_network
+        ports:
+            - 5432:5432
+
+networks:
+    private_network:
+        driver: bridge

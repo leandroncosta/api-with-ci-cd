@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UserSecretsId>9e87fc72-d3d0-4462-a43b-d8f57dc3075c</UserSecretsId>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+
+
+
+
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="Services\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\RelatoX.Application\RelatoX.Application.csproj" />
+		<ProjectReference Include="..\RelatoX.Domain\RelatoX.Domain.csproj" />
+		<ProjectReference Include="..\RelatoX.Infra\RelatoX.Infra.csproj" />
+		<ProjectReference Include="..\RelatoX.Persistence\RelatoX.Persistence.csproj" />
+		<ProjectReference Include="..\RelatoX.Tests\RelatoX.Tests.csproj" />
+	</ItemGroup>
+
+</Project>

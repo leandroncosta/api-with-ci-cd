@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="QuestPDF" Version="2025.4.0" />
+
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\RelatoX.Application\RelatoX.Application.csproj" />
+		<ProjectReference Include="..\RelatoX.Domain\RelatoX.Domain.csproj" />
+	</ItemGroup>
+
+</Project>
